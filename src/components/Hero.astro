@@ -1,0 +1,341 @@
+---
+---
+
+<section class="hero">
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <h1 class="hero-title">Retirada De Amianto</h1>
+        <p class="hero-subtitle">
+          Empresa especializada en retirada de amianto y uralita con todas las certificaciones oficiales.
+          <strong>Presupuesto sin compromiso en 24h.</strong>
+        </p>
+        <ul class="hero-features">
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Empresa certificada RERA</span>
+          </li>
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Seguro de responsabilidad civil</span>
+          </li>
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Gestión de residuos incluida</span>
+          </li>
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Cobertura en toda España</span>
+          </li>
+        </ul>
+      </div>
+
+      <div class="hero-form-wrapper">
+        <div class="form-card">
+          <h2 class="form-title">Solicita tu presupuesto gratis</h2>
+          <p class="form-subtitle">Te respondemos en menos de 24 horas</p>
+
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="nombre" class="form-label">Nombre completo *</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-input"
+                required
+                placeholder="Ej: Juan García"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                required
+                placeholder="ejemplo@email.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="telefono" class="form-label">Teléfono *</label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-input"
+                required
+                placeholder="Ej: 600 123 456"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="ubicacion" class="form-label">Ubicación (ciudad/provincia) *</label>
+              <input
+                type="text"
+                id="ubicacion"
+                name="ubicacion"
+                class="form-input"
+                required
+                placeholder="Ej: Madrid, Barcelona..."
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="servicio" class="form-label">Tipo de servicio *</label>
+              <select id="servicio" name="servicio" class="form-select" required>
+                <option value="">Selecciona un servicio</option>
+                <option value="retirada-tejado">Retirada de tejado de uralita</option>
+                <option value="retirada-deposito">Retirada de depósito de fibrocemento</option>
+                <option value="retirada-tuberias">Retirada de tuberías</option>
+                <option value="retirada-fachada">Retirada de fachada</option>
+                <option value="encapsulado">Encapsulado de amianto</option>
+                <option value="inspeccion">Inspección y análisis</option>
+                <option value="otro">Otro servicio</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje" class="form-label">Mensaje (opcional)</label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-textarea"
+                placeholder="Cuéntanos más detalles sobre tu proyecto..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <span class="btn-text">Solicitar Presupuesto Gratis</span>
+              <span class="btn-loading" style="display: none;">
+                <span class="spinner"></span> Enviando...
+              </span>
+            </button>
+
+            <p class="form-privacy">
+              Al enviar este formulario aceptas nuestra política de privacidad.
+              Tus datos están 100% protegidos.
+            </p>
+          </form>
+
+          <div id="form-success" class="alert alert-success" style="display: none;">
+            <strong>¡Mensaje enviado!</strong> Te contactaremos en menos de 24 horas.
+          </div>
+
+          <div id="form-error" class="alert alert-error" style="display: none;">
+            <strong>Error:</strong> No se pudo enviar el mensaje. Por favor, inténtalo de nuevo.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
+    color: white;
+    padding: 4rem 0;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 100%;
+    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+    opacity: 0.3;
+  }
+
+  .hero-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 4rem;
+    align-items: center;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero-title {
+    font-size: 3rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.1;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    margin-bottom: 2rem;
+    opacity: 0.95;
+    line-height: 1.6;
+  }
+
+  .hero-features {
+    list-style: none;
+    display: grid;
+    gap: 1rem;
+  }
+
+  .hero-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1.1rem;
+  }
+
+  .hero-features svg {
+    flex-shrink: 0;
+    color: #f59e0b;
+  }
+
+  .form-card {
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+  }
+
+  .form-title {
+    color: var(--color-text);
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .form-subtitle {
+    color: var(--color-text-light);
+    margin-bottom: 2rem;
+  }
+
+  .btn-block {
+    width: 100%;
+  }
+
+  .form-privacy {
+    font-size: 0.875rem;
+    color: var(--color-text-light);
+    text-align: center;
+    margin-top: 1rem;
+  }
+
+  .alert {
+    padding: 1rem;
+    border-radius: 0.5rem;
+    margin-top: 1rem;
+    font-weight: 500;
+  }
+
+  .alert-success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 2px solid #059669;
+  }
+
+  .alert-error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 2px solid #dc2626;
+  }
+
+  @media (max-width: 968px) {
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+
+    .hero-title {
+      font-size: 2.5rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.1rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 3rem 0;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .form-card {
+      padding: 2rem 1.5rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const successAlert = document.getElementById('form-success');
+    const errorAlert = document.getElementById('form-error');
+    const submitBtn = form?.querySelector('button[type="submit"]');
+    const btnText = submitBtn?.querySelector('.btn-text');
+    const btnLoading = submitBtn?.querySelector('.btn-loading');
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!submitBtn || !btnText || !btnLoading) return;
+
+      // Mostrar loading
+      submitBtn.disabled = true;
+      btnText.style.display = 'none';
+      btnLoading.style.display = 'inline-flex';
+
+      // Ocultar mensajes previos
+      if (successAlert) successAlert.style.display = 'none';
+      if (errorAlert) errorAlert.style.display = 'none';
+
+      // Recoger datos del formulario
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          // Mostrar mensaje de éxito
+          if (successAlert) successAlert.style.display = 'block';
+          form.reset();
+
+          // Scroll al mensaje
+          successAlert?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          throw new Error('Error al enviar');
+        }
+      } catch (error) {
+        // Mostrar mensaje de error
+        if (errorAlert) errorAlert.style.display = 'block';
+        errorAlert?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } finally {
+        // Restaurar botón
+        submitBtn.disabled = false;
+        btnText.style.display = 'inline';
+        btnLoading.style.display = 'none';
+      }
+    });
+  });
+</script>

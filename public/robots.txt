@@ -1,0 +1,10 @@
+# robots.txt para Retirada Amianto
+
+User-agent: *
+Allow: /
+
+# Sitemap
+Sitemap: https://retirada-amianto.vercel.app/sitemap-index.xml
+
+# Reglas específicas
+Disallow: /api/

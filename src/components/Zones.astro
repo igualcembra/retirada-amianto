@@ -1,0 +1,156 @@
+---
+---
+
+<section id="zonas" class="section section-alt">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2 class="section-title">Trabajamos en Toda España</h2>
+      <p class="section-subtitle">
+        Cobertura nacional con equipos especializados en cada zona
+      </p>
+    </div>
+
+    <div class="zones-grid">
+      <div class="zone-card">
+        <h3 class="zone-title">Madrid</h3>
+        <p class="zone-description">Madrid capital y Comunidad de Madrid</p>
+      </div>
+
+      <div class="zone-card">
+        <h3 class="zone-title">Barcelona</h3>
+        <p class="zone-description">Barcelona y área metropolitana</p>
+      </div>
+
+      <div class="zone-card">
+        <h3 class="zone-title">Valencia</h3>
+        <p class="zone-description">Valencia y Comunidad Valenciana</p>
+      </div>
+
+      <div class="zone-card">
+        <h3 class="zone-title">Sevilla</h3>
+        <p class="zone-description">Sevilla y toda Andalucía</p>
+      </div>
+
+      <div class="zone-card">
+        <h3 class="zone-title">Bilbao</h3>
+        <p class="zone-description">País Vasco y zonas limítrofes</p>
+      </div>
+
+      <div class="zone-card">
+        <h3 class="zone-title">Zaragoza</h3>
+        <p class="zone-description">Aragón y zonas del interior</p>
+      </div>
+
+      <div class="zone-card">
+        <h3 class="zone-title">Málaga</h3>
+        <p class="zone-description">Costa del Sol y provincia</p>
+      </div>
+
+      <div class="zone-card">
+        <h3 class="zone-title">Murcia</h3>
+        <p class="zone-description">Región de Murcia</p>
+      </div>
+
+      <div class="zone-card">
+        <h3 class="zone-title">Palma</h3>
+        <p class="zone-description">Islas Baleares</p>
+      </div>
+
+      <div class="zone-card">
+        <h3 class="zone-title">Las Palmas</h3>
+        <p class="zone-description">Islas Canarias</p>
+      </div>
+
+      <div class="zone-card">
+        <h3 class="zone-title">Galicia</h3>
+        <p class="zone-description">A Coruña, Vigo, Santiago</p>
+      </div>
+
+      <div class="zone-card">
+        <h3 class="zone-title">Castilla y León</h3>
+        <p class="zone-description">Valladolid, Salamanca, León</p>
+      </div>
+    </div>
+
+    <div class="coverage-notice">
+      <p>
+        <strong>¿Tu zona no aparece en la lista?</strong> Consultamos. Tenemos cobertura en toda España incluyendo zonas rurales y polígonos industriales.
+      </p>
+      <a href="#contacto" class="btn btn-outline">Consultar Cobertura</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .zones-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .zone-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 0.75rem;
+    border: 2px solid var(--color-border);
+    transition: all 0.3s ease;
+    text-align: center;
+  }
+
+  .zone-card:hover {
+    border-color: var(--color-primary);
+    transform: translateY(-4px);
+    box-shadow: 0 8px 16px rgba(30, 64, 175, 0.15);
+  }
+
+  .zone-title {
+    font-size: 1.25rem;
+    color: var(--color-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .zone-description {
+    color: var(--color-text-light);
+    font-size: 0.95rem;
+  }
+
+  .coverage-notice {
+    text-align: center;
+    padding: 2.5rem;
+    background: white;
+    border-radius: 1rem;
+    border: 2px dashed var(--color-border);
+  }
+
+  .coverage-notice p {
+    font-size: 1.125rem;
+    color: var(--color-text);
+    margin-bottom: 1.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .zones-grid {
+      grid-template-columns: repeat(3, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .zones-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .zone-card {
+      padding: 1.5rem;
+    }
+
+    .coverage-notice {
+      padding: 2rem 1.5rem;
+    }
+
+    .coverage-notice p {
+      font-size: 1rem;
+    }
+  }
+</style>

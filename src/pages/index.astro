@@ -1,0 +1,173 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
+import WhyUs from '../components/WhyUs.astro';
+import Services from '../components/Services.astro';
+import HowItWorks from '../components/HowItWorks.astro';
+import Zones from '../components/Zones.astro';
+import FAQ from '../components/FAQ.astro';
+import Footer from '../components/Footer.astro';
+
+const title = "Retirada De Amianto | Presupuesto Sin Compromiso";
+const description = "Empresa especializada en retirada de amianto y uralita. Certificados RERA. Presupuesto gratis en 24h. Cobertura en toda España. Servicio profesional con todas las garantías.";
+const keywords = "retirada de amianto, retirada de uralita, desamiantado, retirar uralita, quitar uralita, retirar amianto, empresa retirada de amianto, empresas de retirada de uralita, retirada de fibrocemento, quitar amianto";
+---
+
+<Layout title={title} description={description} keywords={keywords}>
+  <Header />
+  <main>
+    <Hero />
+    <WhyUs />
+    <Services />
+    <HowItWorks />
+    <Zones />
+    <FAQ />
+  </main>
+  <Footer />
+
+  <!-- Schema Markup - LocalBusiness -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "LocalBusiness",
+      "name": "Retirada Amianto",
+      "description": "Empresa especializada en retirada de amianto y uralita con certificación RERA",
+      "url": "https://retirada-amianto.vercel.app",
+      "telephone": "+34900123456",
+      "email": "info@retirada-amianto.es",
+      "address": {
+        "@type": "PostalAddress",
+        "addressCountry": "ES"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "España"
+      },
+      "priceRange": "€€",
+      "openingHours": "Mo-Fr 08:00-19:00",
+      "aggregateRating": {
+        "@type": "AggregateRating",
+        "ratingValue": "4.8",
+        "reviewCount": "127"
+      }
+    }
+  </script>
+
+  <!-- Schema Markup - Service -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Service",
+      "serviceType": "Retirada de Amianto",
+      "provider": {
+        "@type": "Organization",
+        "name": "Retirada Amianto",
+        "url": "https://retirada-amianto.vercel.app"
+      },
+      "areaServed": {
+        "@type": "Country",
+        "name": "España"
+      },
+      "hasOfferCatalog": {
+        "@type": "OfferCatalog",
+        "name": "Servicios de Desamiantado",
+        "itemListElement": [
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Retirada de Tejados de Uralita"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Retirada de Depósitos de Fibrocemento"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Retirada de Tuberías de Amianto"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Encapsulado de Amianto"
+            }
+          },
+          {
+            "@type": "Offer",
+            "itemOffered": {
+              "@type": "Service",
+              "name": "Inspección y Análisis de Amianto"
+            }
+          }
+        ]
+      }
+    }
+  </script>
+
+  <!-- Schema Markup - BreadcrumbList -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {
+          "@type": "ListItem",
+          "position": 1,
+          "name": "Inicio",
+          "item": "https://retirada-amianto.vercel.app"
+        }
+      ]
+    }
+  </script>
+
+  <!-- Schema Markup - FAQPage -->
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "FAQPage",
+      "mainEntity": [
+        {
+          "@type": "Question",
+          "name": "¿Por qué es peligroso el amianto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El amianto es un material cancerígeno que libera fibras microscópicas que pueden inhalarse. La exposición prolongada está relacionada con enfermedades graves como asbestosis, cáncer de pulmón y mesotelioma. Por eso su manipulación debe realizarla personal especializado y certificado."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cuánto cuesta retirar amianto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "El precio depende de varios factores: tipo de material, metros cuadrados, accesibilidad, y ubicación. Como referencia, la retirada de cubiertas de uralita suele oscilar entre 15-35€/m². Te ofrecemos un presupuesto detallado sin compromiso tras una inspección gratuita."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Puedo retirar el amianto yo mismo?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "No es recomendable ni legal. Según el RD 396/2006, solo empresas inscritas en el RERA con personal formado pueden manipular amianto. Hacerlo sin autorización supone riesgos graves para la salud y sanciones de hasta 819.780€. Siempre contrata profesionales certificados."
+          }
+        },
+        {
+          "@type": "Question",
+          "name": "¿Cómo sé si mi tejado tiene amianto?",
+          "acceptedAnswer": {
+            "@type": "Answer",
+            "text": "Si tu tejado es de uralita o fibrocemento y se instaló antes de 2002, es muy probable que contenga amianto. Las placas suelen ser grises y onduladas. Para estar seguro, realizamos análisis de laboratorio. No lo toques ni lo manipules hasta confirmar su composición."
+          }
+        }
+      ]
+    }
+  </script>
+</Layout>
