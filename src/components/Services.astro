@@ -13,11 +13,11 @@
     <div class="grid grid-3">
       <div class="service-card">
         <div class="service-image">
-          <svg width="100%" height="200" viewBox="0 0 400 200" fill="none">
-            <rect width="400" height="200" fill="#e5e7eb"/>
-            <path d="M50 150L200 50L350 150V180H50V150Z" fill="#1e40af"/>
-            <rect x="150" y="100" width="100" height="80" fill="#374151"/>
-          </svg>
+          <img
+            src="https://images.unsplash.com/photo-1632778149955-e80f8ceca2e8?w=800&auto=format&fit=crop&q=80"
+            alt="Tejado industrial de uralita"
+            loading="lazy"
+          />
         </div>
         <div class="service-content">
           <h3 class="service-title">Retirada de Tejados de Uralita</h3>
@@ -25,7 +25,7 @@
             Desmontaje seguro de cubiertas de fibrocemento en naves industriales, agrícolas y viviendas. Incluye retirada, embalaje y gestión de residuos.
           </p>
           <ul class="service-includes">
-            <li>Inspección previa gratuita</li>
+            <li>Inspección previa</li>
             <li>Desmontaje sin roturas</li>
             <li>Embalaje homologado</li>
             <li>Certificado final</li>
@@ -35,11 +35,11 @@
 
       <div class="service-card">
         <div class="service-image">
-          <svg width="100%" height="200" viewBox="0 0 400 200" fill="none">
-            <rect width="400" height="200" fill="#e5e7eb"/>
-            <circle cx="200" cy="140" r="50" fill="#1e40af"/>
-            <rect x="190" y="60" width="20" height="80" fill="#1e40af"/>
-          </svg>
+          <img
+            src="https://images.unsplash.com/photo-1581094794329-c8112a89af12?w=800&auto=format&fit=crop&q=80"
+            alt="Depósito industrial"
+            loading="lazy"
+          />
         </div>
         <div class="service-content">
           <h3 class="service-title">Depósitos de Fibrocemento</h3>
@@ -57,11 +57,11 @@
 
       <div class="service-card">
         <div class="service-image">
-          <svg width="100%" height="200" viewBox="0 0 400 200" fill="none">
-            <rect width="400" height="200" fill="#e5e7eb"/>
-            <path d="M50 100H350V120H50V100Z" fill="#1e40af"/>
-            <path d="M50 140H350V160H50V140Z" fill="#1e40af"/>
-          </svg>
+          <img
+            src="https://images.unsplash.com/photo-1621905251189-08b45d6a269e?w=800&auto=format&fit=crop&q=80"
+            alt="Instalaciones industriales"
+            loading="lazy"
+          />
         </div>
         <div class="service-content">
           <h3 class="service-title">Tuberías y Conducciones</h3>
@@ -79,12 +79,11 @@
 
       <div class="service-card">
         <div class="service-image">
-          <svg width="100%" height="200" viewBox="0 0 400 200" fill="none">
-            <rect width="400" height="200" fill="#e5e7eb"/>
-            <rect x="50" y="50" width="300" height="130" fill="#1e40af"/>
-            <rect x="100" y="90" width="60" height="80" fill="#374151"/>
-            <rect x="240" y="90" width="60" height="80" fill="#374151"/>
-          </svg>
+          <img
+            src="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?w=800&auto=format&fit=crop&q=80"
+            alt="Fachada de edificio"
+            loading="lazy"
+          />
         </div>
         <div class="service-content">
           <h3 class="service-title">Fachadas y Revestimientos</h3>
@@ -102,11 +101,11 @@
 
       <div class="service-card">
         <div class="service-image">
-          <svg width="100%" height="200" viewBox="0 0 400 200" fill="none">
-            <rect width="400" height="200" fill="#e5e7eb"/>
-            <rect x="100" y="80" width="200" height="80" fill="#1e40af" opacity="0.5"/>
-            <path d="M100 80H300V160H100V80Z" stroke="#1e40af" stroke-width="4" fill="none"/>
-          </svg>
+          <img
+            src="https://images.unsplash.com/photo-1590856029620-23e5c4891952?w=800&auto=format&fit=crop&q=80"
+            alt="Trabajador con equipo de protección"
+            loading="lazy"
+          />
         </div>
         <div class="service-content">
           <h3 class="service-title">Encapsulado de Amianto</h3>
@@ -124,11 +123,11 @@
 
       <div class="service-card">
         <div class="service-image">
-          <svg width="100%" height="200" viewBox="0 0 400 200" fill="none">
-            <rect width="400" height="200" fill="#e5e7eb"/>
-            <circle cx="200" cy="100" r="60" fill="none" stroke="#1e40af" stroke-width="4"/>
-            <path d="M200 50L200 90M200 110L200 150M150 100L190 100M210 100L250 100" stroke="#1e40af" stroke-width="4"/>
-          </svg>
+          <img
+            src="https://images.unsplash.com/photo-1581093458791-9d42e3c540f5?w=800&auto=format&fit=crop&q=80"
+            alt="Inspector técnico"
+            loading="lazy"
+          />
         </div>
         <div class="service-content">
           <h3 class="service-title">Inspección y Análisis</h3>
@@ -175,6 +174,19 @@
     width: 100%;
     height: 200px;
     overflow: hidden;
+    position: relative;
+  }
+
+  .service-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+    transition: transform 0.5s ease;
+  }
+
+  .service-card:hover .service-image img {
+    transform: scale(1.05);
   }
 
   .service-content {
