@@ -9,7 +9,7 @@ Landing page optimizada para SEO para generación de leads en el sector de retir
 ## 🚀 Stack Tecnológico
 
 - **Astro 4.15** - Framework para sitios web ultrarrápidos
-- **Vercel** - Hosting y despliegue automático (gratis)
+- **Netlify** - Hosting y despliegue automático (gratis)
 
 ---
 
@@ -25,34 +25,40 @@ Landing page optimizada para SEO para generación de leads en el sector de retir
 
 ## 📋 INSTRUCCIONES PARA DESPLEGAR
 
-### PASO 1: Desplegar en Vercel (5 minutos)
+### PASO 1: Desplegar en Netlify (5 minutos)
 
 #### **Opción A: Desde GitHub (Recomendado)**
 
 1. Asegúrate de que tu código esté en GitHub
-2. Ve a https://vercel.com/
+2. Ve a https://app.netlify.com/
 3. Regístrate/Inicia sesión
-4. Haz clic en **"Add New Project"**
-5. Importa tu repositorio desde GitHub
-6. Vercel detectará automáticamente que es un proyecto Astro
-7. Haz clic en **"Deploy"**
-8. ¡Listo! Tu web estará en línea en 2-3 minutos
+4. Haz clic en **"Add new site"** → **"Import an existing project"**
+5. Conecta con GitHub y selecciona tu repositorio
+6. Netlify detectará automáticamente que es un proyecto Astro
+7. Configuración (ya está en netlify.toml):
+   - Build command: `npm run build`
+   - Publish directory: `dist`
+8. Haz clic en **"Deploy site"**
+9. ¡Listo! Tu web estará en línea en 2-3 minutos
 
 #### **Opción B: Desde la Terminal**
 
 ```bash
-# 1. Instalar Vercel CLI
-npm install -g vercel
+# 1. Instalar Netlify CLI
+npm install -g netlify-cli
 
-# 2. Desplegar
-vercel
+# 2. Login
+netlify login
 
-# 3. Seguir las instrucciones en pantalla
+# 3. Desplegar
+netlify deploy --prod
+
+# 4. Seguir las instrucciones en pantalla
 ```
 
 **¡Tu landing page estará en línea con SSL gratis!**
 
-URL ejemplo: `https://retirada-amianto.vercel.app`
+URL ejemplo: `https://retirada-amianto.netlify.app`
 
 ---
 
@@ -104,9 +110,9 @@ Edita `src/layouts/Layout.astro` (líneas 38-42):
 ### Cambiar Dominio
 
 1. Compra tu dominio (ej: en Namecheap, GoDaddy)
-2. En Vercel: **Settings → Domains**
+2. En Netlify: **Site settings → Domain management → Add custom domain**
 3. Añade tu dominio
-4. Configura los DNS según las instrucciones de Vercel
+4. Configura los DNS según las instrucciones de Netlify
 5. Actualiza las URLs en:
    - `astro.config.mjs` → línea 7 (`site:`)
    - `public/robots.txt` → línea 6
@@ -222,11 +228,8 @@ npm run build
 # Preview del build
 npm run preview
 
-# Desplegar a Vercel
-vercel
-
-# Desplegar a producción
-vercel --prod
+# Desplegar a Netlify
+netlify deploy --prod
 ```
 
 ---
@@ -251,8 +254,8 @@ El formulario actualmente funciona en **MODO DEMO**:
 - Mira la terminal donde ejecutaste `npm run dev`
 - Verás los datos impresos en consola
 
-**En Vercel:**
-- Ve a tu proyecto en Vercel Dashboard
+**En Netlify:**
+- Ve a tu proyecto en Netlify Dashboard
 - Click en **"Functions"** → **"Logs"**
 - Verás los datos enviados por el formulario
 

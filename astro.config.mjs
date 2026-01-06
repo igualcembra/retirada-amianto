@@ -1,13 +1,13 @@
 import { defineConfig } from 'astro/config';
 import sitemap from '@astrojs/sitemap';
-import vercel from '@astrojs/vercel/serverless';
+import netlify from '@astrojs/netlify';
 
 // https://astro.build/config
 export default defineConfig({
-  site: 'https://retirada-amianto.vercel.app', // Cambiar por tu dominio
+  site: 'https://retirada-amianto.netlify.app', // Cambiar por tu dominio
   integrations: [sitemap()],
   output: 'hybrid',
-  adapter: vercel(),
+  adapter: netlify(),
   compressHTML: true,
   build: {
     inlineStylesheets: 'auto'
