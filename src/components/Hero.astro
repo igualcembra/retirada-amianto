@@ -283,11 +283,11 @@
 <script>
   document.addEventListener('DOMContentLoaded', () => {
     const form = document.getElementById('contact-form') as HTMLFormElement;
-    const successAlert = document.getElementById('form-success');
-    const errorAlert = document.getElementById('form-error');
-    const submitBtn = form?.querySelector('button[type="submit"]');
-    const btnText = submitBtn?.querySelector('.btn-text');
-    const btnLoading = submitBtn?.querySelector('.btn-loading');
+    const successAlert = document.getElementById('form-success') as HTMLElement;
+    const errorAlert = document.getElementById('form-error') as HTMLElement;
+    const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const btnText = submitBtn?.querySelector('.btn-text') as HTMLElement;
+    const btnLoading = submitBtn?.querySelector('.btn-loading') as HTMLElement;
 
     form?.addEventListener('submit', async (e) => {
       e.preventDefault();
