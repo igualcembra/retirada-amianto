@@ -10,96 +10,7 @@ interface ContactFormData {
   mensaje?: string;
 }
 
-// Función para enviar email usando Resend
-async function sendEmail(data: ContactFormData) {
-  const RESEND_API_KEY = import.meta.env.RESEND_API_KEY;
-  const EMAIL_TO = import.meta.env.EMAIL_TO || 'info@retirada-amianto.es';
-
-  if (!RESEND_API_KEY) {
-    console.warn('⚠️ RESEND_API_KEY no configurada. El email no se enviará.');
-    return { success: false, message: 'API key not configured' };
-  }
-
-  try {
-    const response = await fetch('https://api.resend.com/emails', {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-        'Authorization': `Bearer ${RESEND_API_KEY}`,
-      },
-      body: JSON.stringify({
-        from: 'Retirada Amianto <onboarding@resend.dev>', // Cambiar cuando tengas dominio verificado
-        to: EMAIL_TO,
-        subject: `Nuevo lead: ${data.nombre} - ${data.servicio}`,
-        html: `
-          <h2>Nuevo contacto desde la web</h2>
-          <p><strong>Nombre:</strong> ${data.nombre}</p>
-          <p><strong>Email:</strong> ${data.email}</p>
-          <p><strong>Teléfono:</strong> ${data.telefono}</p>
-          <p><strong>Ubicación:</strong> ${data.ubicacion}</p>
-          <p><strong>Servicio:</strong> ${data.servicio}</p>
-          ${data.mensaje ? `<p><strong>Mensaje:</strong><br>${data.mensaje.replace(/\n/g, '<br>')}</p>` : ''}
-          <hr>
-          <p style="color: #666; font-size: 12px;">Recibido el ${new Date().toLocaleString('es-ES')}</p>
-        `,
-      }),
-    });
-
-    if (!response.ok) {
-      const error = await response.text();
-      console.error('Error enviando email:', error);
-      return { success: false, message: error };
-    }
-
-    return { success: true };
-  } catch (error) {
-    console.error('Error en sendEmail:', error);
-    return { success: false, message: String(error) };
-  }
-}
-
-// Función para guardar en Google Sheets
-async function saveToGoogleSheets(data: ContactFormData) {
-  const GOOGLE_SHEETS_URL = import.meta.env.GOOGLE_SHEETS_URL;
-
-  if (!GOOGLE_SHEETS_URL) {
-    console.warn('⚠️ GOOGLE_SHEETS_URL no configurada. No se guardará en Sheets.');
-    return { success: false, message: 'Google Sheets URL not configured' };
-  }
-
-  try {
-    const timestamp = new Date().toLocaleString('es-ES');
-
-    const response = await fetch(GOOGLE_SHEETS_URL, {
-      method: 'POST',
-      headers: {
-        'Content-Type': 'application/json',
-      },
-      body: JSON.stringify({
-        timestamp,
-        nombre: data.nombre,
-        email: data.email,
-        telefono: data.telefono,
-        ubicacion: data.ubicacion,
-        servicio: data.servicio,
-        mensaje: data.mensaje || '',
-      }),
-    });
-
-    if (!response.ok) {
-      const error = await response.text();
-      console.error('Error guardando en Google Sheets:', error);
-      return { success: false, message: error };
-    }
-
-    return { success: true };
-  } catch (error) {
-    console.error('Error en saveToGoogleSheets:', error);
-    return { success: false, message: String(error) };
-  }
-}
-
-// Handler del endpoint
+// Handler del endpoint - VERSIÓN PROTOTIPO (sin envío real)
 export const POST: APIRoute = async ({ request }) => {
   try {
     // Validar Content-Type
@@ -147,30 +58,29 @@ export const POST: APIRoute = async ({ request }) => {
       mensaje: data.mensaje ? data.mensaje.trim().substring(0, 1000) : undefined,
     };
 
-    // Enviar email (no bloquea si falla)
-    const emailResult = await sendEmail(sanitizedData);
-
-    // Guardar en Google Sheets (no bloquea si falla)
-    const sheetsResult = await saveToGoogleSheets(sanitizedData);
-
-    // Responder al cliente
-    // Consideramos éxito si al menos uno de los dos funciona
-    if (!emailResult.success && !sheetsResult.success) {
-      console.error('Ambos servicios fallaron:', { emailResult, sheetsResult });
-      return new Response(
-        JSON.stringify({
-          error: 'No se pudo procesar el formulario. Por favor, intenta de nuevo.'
-        }),
-        { status: 500 }
-      );
+    // SIMULACIÓN: Registrar en consola (en producción lo verías en los logs de Vercel)
+    console.log('📧 NUEVO LEAD RECIBIDO:');
+    console.log('━'.repeat(50));
+    console.log(`👤 Nombre: ${sanitizedData.nombre}`);
+    console.log(`📧 Email: ${sanitizedData.email}`);
+    console.log(`📱 Teléfono: ${sanitizedData.telefono}`);
+    console.log(`📍 Ubicación: ${sanitizedData.ubicacion}`);
+    console.log(`🔧 Servicio: ${sanitizedData.servicio}`);
+    if (sanitizedData.mensaje) {
+      console.log(`💬 Mensaje: ${sanitizedData.mensaje}`);
     }
+    console.log(`🕐 Fecha: ${new Date().toLocaleString('es-ES')}`);
+    console.log('━'.repeat(50));
 
+    // Simular delay de red (más realista)
+    await new Promise(resolve => setTimeout(resolve, 500));
+
+    // Responder con éxito
     return new Response(
       JSON.stringify({
         success: true,
-        message: 'Formulario enviado correctamente',
-        email: emailResult.success,
-        sheets: sheetsResult.success,
+        message: 'Formulario enviado correctamente (modo demo)',
+        data: sanitizedData,
       }),
       {
         status: 200,
@@ -196,8 +106,9 @@ export const GET: APIRoute = async () => {
   return new Response(
     JSON.stringify({
       status: 'ok',
-      message: 'Contact API endpoint is working',
+      message: 'Contact API endpoint is working (DEMO MODE)',
       timestamp: new Date().toISOString(),
+      note: 'Este es un prototipo. Los datos se muestran en los logs de consola.'
     }),
     {
       status: 200,

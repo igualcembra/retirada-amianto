@@ -2,226 +2,81 @@
 
 Landing page optimizada para SEO para generación de leads en el sector de retirada de amianto en España.
 
-## 🚀 Stack Tecnológico
-
-- **Astro 4.15** - Framework para sitios web ultrarrápidos
-- **Resend** - Envío de emails transaccionales
-- **Google Sheets** - Base de datos simple para almacenar leads
-- **Vercel** - Hosting y despliegue automático
-
-## ✨ Características
-
-✅ SEO optimizado (Schema Markup, meta tags, sitemap)
-✅ Formulario de contacto funcional
-✅ Notificaciones por email
-✅ Almacenamiento en Google Sheets
-✅ Diseño responsive (móvil, tablet, desktop)
-✅ Core Web Vitals optimizados
-✅ Certificación SSL automática
+**🎨 PROTOTIPO VISUAL** - El formulario es funcional pero no envía emails reales (modo demo).
 
 ---
 
-## 📋 INSTRUCCIONES PASO A PASO
+## 🚀 Stack Tecnológico
 
-### PASO 1: Instalar Node.js
+- **Astro 4.15** - Framework para sitios web ultrarrápidos
+- **Vercel** - Hosting y despliegue automático (gratis)
 
-1. Ve a https://nodejs.org/
-2. Descarga la versión LTS (recomendada)
-3. Instala con los valores por defecto
-4. Abre la terminal (CMD en Windows o Terminal en Mac)
-5. Verifica la instalación:
-   ```bash
-   node --version
-   npm --version
-   ```
+---
 
-### PASO 2: Instalar Dependencias
+## ✨ Características
 
-1. Abre la terminal en la carpeta del proyecto
-2. Ejecuta:
-   ```bash
-   npm install
-   ```
-3. Espera a que se descarguen todas las dependencias (puede tardar 1-2 minutos)
+✅ Diseño profesional y responsive
+✅ SEO optimizado (Schema Markup, meta tags, sitemap)
+✅ Formulario de contacto funcional (modo demo)
+✅ Core Web Vitals optimizados
+✅ 7 secciones completas (Hero, Servicios, FAQ, etc.)
 
-### PASO 3: Configurar Resend (Email)
+---
 
-Resend es un servicio gratuito (hasta 100 emails/día) para enviar emails. **Es obligatorio para recibir los leads por email.**
+## 📋 INSTRUCCIONES PARA DESPLEGAR
 
-1. Ve a https://resend.com/
-2. Crea una cuenta (gratis)
-3. Verifica tu email
-4. Ve a "API Keys" en el menú lateral
-5. Haz clic en "Create API Key"
-6. Dale un nombre (ej: "retirada-amianto")
-7. Copia la API Key que empieza por `re_...`
+### PASO 1: Desplegar en Vercel (5 minutos)
 
-### PASO 4: Configurar Google Sheets (Base de Datos)
+#### **Opción A: Desde GitHub (Recomendado)**
 
-Google Sheets es gratis y te permite tener una base de datos simple con todos tus leads. **Opcional pero muy recomendado.**
+1. Asegúrate de que tu código esté en GitHub
+2. Ve a https://vercel.com/
+3. Regístrate/Inicia sesión
+4. Haz clic en **"Add New Project"**
+5. Importa tu repositorio desde GitHub
+6. Vercel detectará automáticamente que es un proyecto Astro
+7. Haz clic en **"Deploy"**
+8. ¡Listo! Tu web estará en línea en 2-3 minutos
 
-#### 4.1. Crear la Hoja de Cálculo
-
-1. Ve a https://sheets.google.com/
-2. Crea una nueva hoja de cálculo
-3. Nómbrala "Leads Retirada Amianto"
-4. En la primera fila (fila 1), escribe estos encabezados exactamente:
-   - A1: `Fecha`
-   - B1: `Nombre`
-   - C1: `Email`
-   - D1: `Teléfono`
-   - E1: `Ubicación`
-   - F1: `Servicio`
-   - G1: `Mensaje`
-
-#### 4.2. Crear el Script de Google Apps
-
-1. En tu hoja de cálculo, ve al menú: **Extensiones → Apps Script**
-2. Borra el código que aparece
-3. Copia y pega este código:
-
-```javascript
-function doPost(e) {
-  try {
-    var sheet = SpreadsheetApp.getActiveSpreadsheet().getActiveSheet();
-    var data = JSON.parse(e.postData.contents);
-
-    sheet.appendRow([
-      data.timestamp || new Date(),
-      data.nombre || '',
-      data.email || '',
-      data.telefono || '',
-      data.ubicacion || '',
-      data.servicio || '',
-      data.mensaje || ''
-    ]);
-
-    return ContentService.createTextOutput(JSON.stringify({
-      'status': 'success'
-    })).setMimeType(ContentService.MimeType.JSON);
-
-  } catch (error) {
-    return ContentService.createTextOutput(JSON.stringify({
-      'status': 'error',
-      'message': error.toString()
-    })).setMimeType(ContentService.MimeType.JSON);
-  }
-}
-```
-
-4. Haz clic en el icono de **Guardar** (💾)
-5. Dale un nombre al proyecto (ej: "Webhook Leads")
-6. Haz clic en **Implementar → Nueva implementación**
-7. Selecciona el tipo: **Aplicación web**
-8. Configuración:
-   - **Ejecutar como:** Tu email
-   - **Quién tiene acceso:** Cualquier persona
-9. Haz clic en **Implementar**
-10. Autoriza los permisos (puede que Google te avise que no es una app verificada, haz clic en "Ir a [nombre del script]")
-11. **IMPORTANTE:** Copia la URL que aparece (empieza por `https://script.google.com/macros/s/...`)
-
-### PASO 5: Configurar Variables de Entorno
-
-1. En la carpeta raíz del proyecto, crea un archivo llamado `.env` (sin extensión)
-2. Copia el contenido de `.env.example` y pégalo en `.env`
-3. Reemplaza los valores:
-
-```env
-RESEND_API_KEY=re_tu_api_key_aqui
-EMAIL_TO=tu_email@example.com
-GOOGLE_SHEETS_URL=https://script.google.com/macros/s/XXXXXX/exec
-```
-
-**Ejemplo real:**
-```env
-RESEND_API_KEY=re_abc123def456ghi789
-EMAIL_TO=contacto@miamianto.es
-GOOGLE_SHEETS_URL=https://script.google.com/macros/s/AKfycbzXXXXXXXXXXXXXXXXXXXX/exec
-```
-
-### PASO 6: Probar en Local
-
-1. Ejecuta el proyecto en local:
-   ```bash
-   npm run dev
-   ```
-
-2. Abre tu navegador en: http://localhost:4321
-
-3. Prueba el formulario de contacto con datos de prueba
-
-4. Verifica que:
-   - Recibes el email en tu bandeja
-   - Los datos aparecen en Google Sheets
-
-### PASO 7: Desplegar en Vercel
-
-Vercel es gratis para proyectos personales y ofrece despliegue automático.
-
-#### 7.1. Crear Cuenta en Vercel
-
-1. Ve a https://vercel.com/
-2. Regístrate con tu email o GitHub
-3. Verifica tu cuenta
-
-#### 7.2. Instalar Vercel CLI (Opcional pero recomendado)
+#### **Opción B: Desde la Terminal**
 
 ```bash
+# 1. Instalar Vercel CLI
 npm install -g vercel
+
+# 2. Desplegar
+vercel
+
+# 3. Seguir las instrucciones en pantalla
 ```
 
-#### 7.3. Desplegar desde la Terminal
+**¡Tu landing page estará en línea con SSL gratis!**
 
-1. En la terminal, dentro del proyecto, ejecuta:
-   ```bash
-   vercel
-   ```
+URL ejemplo: `https://retirada-amianto.vercel.app`
 
-2. Sigue las instrucciones:
-   - Login con tu cuenta
-   - Set up and deploy? **Y**
-   - Which scope? (tu usuario)
-   - Link to existing project? **N**
-   - What's your project's name? **retirada-amianto**
-   - In which directory? **./** (presiona Enter)
-   - Want to override settings? **N**
+---
 
-3. Espera a que se despliegue (2-3 minutos)
+## 💻 Desarrollo Local
 
-4. Recibirás una URL como: `https://retirada-amianto.vercel.app`
+Si quieres ver la web en tu ordenador antes de desplegar:
 
-#### 7.4. Configurar Variables de Entorno en Vercel
+### 1. Instalar Node.js
+- Ve a https://nodejs.org/
+- Descarga la versión LTS
+- Instala con valores por defecto
 
-**MUY IMPORTANTE:** Debes configurar las variables de entorno también en Vercel.
+### 2. Instalar dependencias
+```bash
+cd retirada-amianto
+npm install
+```
 
-1. Ve a https://vercel.com/dashboard
-2. Selecciona tu proyecto
-3. Ve a **Settings → Environment Variables**
-4. Añade las 3 variables:
-   - `RESEND_API_KEY` = tu_api_key
-   - `EMAIL_TO` = tu_email
-   - `GOOGLE_SHEETS_URL` = tu_url_de_sheets
+### 3. Ejecutar en local
+```bash
+npm run dev
+```
 
-5. Haz clic en **Save**
-
-6. Ve a **Deployments** y haz clic en los 3 puntos del último deployment
-7. Selecciona **Redeploy** para que cargue las variables
-
-### PASO 8: Configurar Dominio Personalizado (Opcional)
-
-Si tienes un dominio propio:
-
-1. En Vercel, ve a **Settings → Domains**
-2. Añade tu dominio (ej: `retirada-amianto.es`)
-3. Vercel te dará las instrucciones para configurar los DNS
-4. Ve a tu proveedor de dominios (GoDaddy, Namecheap, etc.)
-5. Configura los registros DNS como indica Vercel
-6. Espera 24-48 horas para la propagación
-
-**IMPORTANTE:** Una vez tengas dominio propio:
-- Actualiza la URL en `astro.config.mjs` (línea `site:`)
-- Actualiza las URLs en los Schema Markup de `src/pages/index.astro`
-- En Resend, verifica tu dominio para enviar desde `contacto@tudominio.es`
+Abre tu navegador en: http://localhost:4321
 
 ---
 
@@ -229,55 +84,129 @@ Si tienes un dominio propio:
 
 ### Cambiar Colores
 
-Edita las variables CSS en `src/layouts/Layout.astro`:
+Edita `src/layouts/Layout.astro` (líneas 38-42):
 
 ```css
 :root {
   --color-primary: #1e40af;     /* Color principal (azul) */
   --color-secondary: #f59e0b;   /* Color secundario (naranja) */
-  --color-text: #1f2937;         /* Color del texto */
+  --color-text: #1f2937;        /* Color del texto */
 }
 ```
 
 ### Cambiar Textos
 
-- **Hero:** `src/components/Hero.astro`
+- **Hero y formulario:** `src/components/Hero.astro`
 - **Servicios:** `src/components/Services.astro`
 - **FAQ:** `src/components/FAQ.astro`
 - **Footer:** `src/components/Footer.astro`
 
-### Añadir/Modificar Secciones
+### Cambiar Dominio
 
-Cada sección es un componente independiente en `src/components/`.
-Edita el componente que necesites y los cambios se reflejarán automáticamente.
+1. Compra tu dominio (ej: en Namecheap, GoDaddy)
+2. En Vercel: **Settings → Domains**
+3. Añade tu dominio
+4. Configura los DNS según las instrucciones de Vercel
+5. Actualiza las URLs en:
+   - `astro.config.mjs` → línea 7 (`site:`)
+   - `public/robots.txt` → línea 6
+   - Schema Markup en `src/pages/index.astro`
 
 ---
 
-## 📊 Monitorizar Resultados
+## 📊 Estructura del Proyecto
 
-### Google Analytics (Recomendado)
-
-1. Crea una cuenta en https://analytics.google.com/
-2. Obtén tu ID de medición (ej: `G-XXXXXXXXXX`)
-3. Añade este código en `src/layouts/Layout.astro` antes de `</head>`:
-
-```html
-<!-- Google Analytics -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag(){dataLayer.push(arguments);}
-  gtag('js', new Date());
-  gtag('config', 'G-XXXXXXXXXX');
-</script>
+```
+retirada-amianto/
+├── src/
+│   ├── components/          # Componentes reutilizables
+│   │   ├── Header.astro    # Navegación
+│   │   ├── Hero.astro      # Hero + Formulario
+│   │   ├── WhyUs.astro     # Por qué elegirnos
+│   │   ├── Services.astro  # Servicios
+│   │   ├── HowItWorks.astro
+│   │   ├── Zones.astro     # Zonas de cobertura
+│   │   ├── FAQ.astro       # Preguntas frecuentes
+│   │   └── Footer.astro
+│   ├── layouts/
+│   │   └── Layout.astro    # Layout con SEO
+│   ├── pages/
+│   │   ├── index.astro     # Homepage
+│   │   └── api/
+│   │       └── contact.ts  # API formulario (modo demo)
+│   └── styles/
+│       └── global.css
+├── public/
+│   ├── robots.txt
+│   └── favicon.svg
+└── README.md
 ```
 
-### Google Search Console
+---
 
-1. Ve a https://search.google.com/search-console/
-2. Añade tu propiedad (dominio)
-3. Verifica la propiedad
-4. Envía el sitemap: `https://tudominio.com/sitemap-index.xml`
+## 📱 Secciones de la Landing Page
+
+### 1. **Hero con Formulario**
+- Título optimizado H1: "Retirada De Amianto"
+- Formulario de contacto integrado
+- 4 beneficios clave con iconos
+
+### 2. **Por Qué Elegirnos**
+- 6 razones con iconos profesionales
+- Certificaciones y seguros
+
+### 3. **Servicios**
+- 6 tipos de servicios detallados
+- Ilustraciones SVG personalizadas
+- Lista de beneficios por servicio
+
+### 4. **Cómo Funciona**
+- Proceso en 3 pasos visuales
+- Banner de seguridad con normativa
+
+### 5. **Zonas de Cobertura**
+- 12 ciudades principales
+- Mensaje de consulta para otras zonas
+
+### 6. **FAQ**
+- 8 preguntas frecuentes
+- Acordeón interactivo
+
+### 7. **Footer**
+- Información de contacto
+- Enlaces legales
+- Iconos y badges
+
+---
+
+## 📈 SEO Incluido
+
+✅ **Schema Markup:**
+- LocalBusiness
+- Service
+- FAQPage
+- BreadcrumbList
+
+✅ **Meta Tags:**
+- Title y Description optimizados
+- Open Graph (Facebook)
+- Twitter Cards
+- Canonical URLs
+
+✅ **Performance:**
+- HTML estático (SSG)
+- CSS minificado
+- Core Web Vitals optimizados
+
+✅ **Sitemap:**
+- Generado automáticamente
+- Disponible en `/sitemap-index.xml`
+
+✅ **Keywords incluidas:**
+- retirada de amianto
+- retirada de uralita
+- desamiantado
+- +20 keywords más
 
 ---
 
@@ -296,79 +225,129 @@ npm run preview
 # Desplegar a Vercel
 vercel
 
-# Desplegar a producción en Vercel
+# Desplegar a producción
 vercel --prod
 ```
 
 ---
 
-## 📈 Optimizaciones SEO Incluidas
+## 📊 Modo Demo del Formulario
 
-✅ **Schema Markup:**
-- LocalBusiness
-- Service
-- FAQPage
-- BreadcrumbList
+El formulario actualmente funciona en **MODO DEMO**:
 
-✅ **Meta Tags:**
-- Title y Description optimizados
-- Open Graph (Facebook)
-- Twitter Cards
-- Canonical URLs
+✅ **Qué hace:**
+- Valida todos los campos
+- Muestra feedback visual (loading, éxito, error)
+- Registra los datos en la consola del servidor
 
-✅ **Performance:**
-- HTML estático
-- CSS minificado
-- JavaScript mínimo
-- Imágenes lazy loading
-- Preconnect a Google Fonts
+❌ **Qué NO hace (todavía):**
+- No envía emails reales
+- No guarda en base de datos
+- Es solo un prototipo visual
 
-✅ **Sitemap:**
-- Generado automáticamente por Astro
-- Accesible en `/sitemap-index.xml`
+### Ver los datos enviados:
 
-✅ **Robots.txt:**
-- Configurado para permitir crawling
-- Enlaza al sitemap
+**En desarrollo local:**
+- Mira la terminal donde ejecutaste `npm run dev`
+- Verás los datos impresos en consola
+
+**En Vercel:**
+- Ve a tu proyecto en Vercel Dashboard
+- Click en **"Functions"** → **"Logs"**
+- Verás los datos enviados por el formulario
+
+---
+
+## 🎯 Próximos Pasos (Futuras Mejoras)
+
+Una vez aprobado el diseño, se pueden añadir:
+
+1. ✅ **Integración de Email** - Envío real de leads por email
+2. ✅ **Base de datos** - Google Sheets o Airtable
+3. ✅ **Google Analytics** - Métricas de visitas
+4. ✅ **Páginas de ciudades** - SEO local
+5. ✅ **Blog** - Contenido SEO
+6. ✅ **reCAPTCHA** - Protección anti-spam
+
+---
+
+## 🌐 URLs Importantes
+
+- **Sitemap:** `/sitemap-index.xml`
+- **Robots:** `/robots.txt`
+- **API Demo:** `/api/contact`
+
+---
+
+## 💡 Monitorización
+
+### Google Search Console (Recomendado)
+
+1. Ve a https://search.google.com/search-console/
+2. Añade tu dominio
+3. Verifica la propiedad
+4. Envía el sitemap: `https://tudominio.com/sitemap-index.xml`
+
+### Google Analytics (Opcional)
+
+Añade este código en `src/layouts/Layout.astro` antes de `</head>`:
+
+```html
+<!-- Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-XXXXXXXXXX"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-XXXXXXXXXX');
+</script>
+```
+
+---
+
+## 📞 Datos de Contacto en la Web
+
+Recuerda actualizar en `src/components/Footer.astro`:
+- Teléfono: Línea 66
+- Email: Línea 72
+- Horario: Línea 78
+
+---
+
+## ✅ Checklist de Despliegue
+
+- [ ] Instalar Node.js
+- [ ] Clonar repositorio / descargar código
+- [ ] Ejecutar `npm install`
+- [ ] Probar en local con `npm run dev`
+- [ ] Personalizar colores y textos
+- [ ] Desplegar en Vercel
+- [ ] Configurar dominio personalizado (opcional)
+- [ ] Añadir a Google Search Console
+- [ ] Configurar Google Analytics (opcional)
 
 ---
 
 ## 🐛 Solución de Problemas
 
-### El formulario no envía emails
+### Error al ejecutar `npm run dev`
 
-1. Verifica que `RESEND_API_KEY` está configurada en `.env` y en Vercel
-2. Comprueba que la API key es válida en https://resend.com/
-3. Revisa los logs de Vercel en el dashboard
+```bash
+# Elimina node_modules y reinstala
+rm -rf node_modules package-lock.json
+npm install
+```
 
-### Los datos no se guardan en Google Sheets
+### La web no se ve bien en móvil
 
-1. Verifica que el script de Google Apps está desplegado correctamente
-2. Comprueba que `GOOGLE_SHEETS_URL` es correcta
-3. Verifica los permisos del script (debe ser accesible por cualquier persona)
-4. Revisa los logs del script: Apps Script → Ejecuciones
+- Asegúrate de estar usando la última versión del código
+- Limpia la caché del navegador (Ctrl + Shift + R)
 
-### Error al desplegar en Vercel
+### El formulario no muestra el mensaje de éxito
 
-1. Asegúrate de que todas las dependencias están instaladas
-2. Ejecuta `npm run build` en local para detectar errores
-3. Revisa los logs en el dashboard de Vercel
-
-### La web va lenta
-
-1. Verifica que estás usando la build de producción (`npm run build`)
-2. Comprueba Core Web Vitals en https://pagespeed.web.dev/
-3. Optimiza imágenes si has añadido nuevas
-
----
-
-## 📞 Soporte
-
-Si tienes dudas o problemas:
-
-1. **Astro Docs:** https://docs.astro.build/
-2. **Resend Docs:** https://resend.com/docs
-3. **Vercel Docs:** https://vercel.com/docs
+- Abre la consola del navegador (F12)
+- Mira si hay errores en la pestaña "Console"
+- Verifica que `/api/contact` esté funcionando
 
 ---
 
@@ -378,15 +357,6 @@ Este proyecto es privado y está creado específicamente para tu negocio de reti
 
 ---
 
-## 🎯 Próximos Pasos Recomendados
+**¡Tu landing page está lista para despegar! 🚀**
 
-1. ✅ Desplegar la web en Vercel
-2. ✅ Configurar Google Analytics
-3. ✅ Registrar en Google Search Console
-4. ✅ Crear páginas de servicios específicas (próximo desarrollo)
-5. ✅ Añadir blog para contenido SEO (próximo desarrollo)
-6. ✅ Implementar páginas de ciudades/provincias (próximo desarrollo)
-
----
-
-**¡Tu landing page está lista para generar leads! 🚀**
+Sin complicaciones. Sin configuración de APIs. Solo despliega y funciona.
