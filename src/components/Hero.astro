@@ -2,46 +2,81 @@
 ---
 
 <section class="hero">
+  <div class="hero-background">
+    <img
+      src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&auto=format&fit=crop&q=80"
+      alt="Trabajadores en obra de construcción"
+      class="hero-bg-image"
+    />
+    <div class="hero-overlay"></div>
+  </div>
+
   <div class="container">
     <div class="hero-content">
       <div class="hero-text">
+        <div class="hero-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Empresa Certificada RERA</span>
+        </div>
+
         <h1 class="hero-title">Retirada De Amianto</h1>
+
         <p class="hero-subtitle">
           Empresa especializada en retirada de amianto y uralita con todas las certificaciones oficiales.
-          <strong>Presupuesto sin compromiso en 24h.</strong>
+          <strong class="hero-highlight">Presupuesto sin compromiso en 24h.</strong>
         </p>
+
         <ul class="hero-features">
           <li>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span>Empresa certificada RERA</span>
           </li>
           <li>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span>Seguro de responsabilidad civil</span>
           </li>
           <li>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span>Gestión de residuos incluida</span>
           </li>
           <li>
             <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
-              <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
             </svg>
             <span>Cobertura en toda España</span>
           </li>
         </ul>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-number">+500</div>
+            <div class="stat-label">Proyectos completados</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">24h</div>
+            <div class="stat-label">Tiempo de respuesta</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Satisfacción cliente</div>
+          </div>
+        </div>
       </div>
 
       <div class="hero-form-wrapper">
         <div class="form-card">
-          <h2 class="form-title">Solicita tu presupuesto gratis</h2>
-          <p class="form-subtitle">Te respondemos en menos de 24 horas</p>
+          <div class="form-header">
+            <h2 class="form-title">Solicita tu presupuesto gratis</h2>
+            <p class="form-subtitle">Te respondemos en menos de 24 horas</p>
+          </div>
 
           <form id="contact-form" class="contact-form">
             <div class="form-group">
@@ -124,89 +159,212 @@
             </button>
 
             <p class="form-privacy">
-              Al enviar este formulario aceptas nuestra política de privacidad.
+              🔒 Al enviar este formulario aceptas nuestra política de privacidad.
               Tus datos están 100% protegidos.
             </p>
           </form>
 
           <div id="form-success" class="alert alert-success" style="display: none;">
-            <strong>¡Mensaje enviado!</strong> Te contactaremos en menos de 24 horas.
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <strong>¡Mensaje enviado!</strong>
+              <p>Te contactaremos en menos de 24 horas.</p>
+            </div>
           </div>
 
           <div id="form-error" class="alert alert-error" style="display: none;">
-            <strong>Error:</strong> No se pudo enviar el mensaje. Por favor, inténtalo de nuevo.
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke-width="2"/>
+              <line x1="12" y1="8" x2="12" y2="12" stroke-width="2" stroke-linecap="round"/>
+              <line x1="12" y1="16" x2="12.01" y2="16" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <strong>Error</strong>
+              <p>No se pudo enviar el mensaje. Por favor, inténtalo de nuevo.</p>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </div>
+
+  <!-- Decoración ondulada al final del hero -->
+  <div class="hero-waves">
+    <svg viewBox="0 0 1440 120" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <path d="M0 0L60 10C120 20 240 40 360 46.7C480 53 600 47 720 43.3C840 40 960 40 1080 46.7C1200 53 1320 67 1380 73.3L1440 80V120H1380C1320 120 1200 120 1080 120C960 120 840 120 720 120C600 120 480 120 360 120C240 120 120 120 60 120H0V0Z" fill="white"/>
+    </svg>
+  </div>
 </section>
 
 <style>
   .hero {
-    background: linear-gradient(135deg, #1e40af 0%, #1e3a8a 100%);
-    color: white;
-    padding: 4rem 0;
     position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 0 6rem;
     overflow: hidden;
   }
 
-  .hero::before {
-    content: '';
+  .hero-background {
     position: absolute;
     top: 0;
-    right: 0;
-    width: 50%;
+    left: 0;
+    width: 100%;
     height: 100%;
-    background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
-    opacity: 0.3;
+    z-index: 0;
+  }
+
+  .hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(
+      135deg,
+      rgba(14, 165, 233, 0.95) 0%,
+      rgba(2, 132, 199, 0.92) 50%,
+      rgba(3, 105, 161, 0.90) 100%
+    );
   }
 
   .hero-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 4rem;
-    align-items: center;
     position: relative;
     z-index: 1;
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 5rem;
+    align-items: start;
+  }
+
+  .hero-text {
+    color: white;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    padding: 0.5rem 1rem;
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+  }
+
+  .hero-badge svg {
+    color: #fbbf24;
   }
 
   .hero-title {
-    font-size: 3rem;
+    font-size: clamp(3rem, 6vw, 4.5rem);
+    font-weight: 900;
     margin-bottom: 1.5rem;
     line-height: 1.1;
+    color: white;
+    text-shadow: 0 2px 20px rgba(0, 0, 0, 0.3);
   }
 
   .hero-subtitle {
     font-size: 1.25rem;
-    margin-bottom: 2rem;
+    margin-bottom: 2.5rem;
     opacity: 0.95;
-    line-height: 1.6;
+    line-height: 1.7;
+    max-width: 600px;
+  }
+
+  .hero-highlight {
+    display: block;
+    margin-top: 0.5rem;
+    color: #fbbf24;
+    font-size: 1.4rem;
   }
 
   .hero-features {
     list-style: none;
     display: grid;
+    grid-template-columns: repeat(2, 1fr);
     gap: 1rem;
+    margin-bottom: 3rem;
   }
 
   .hero-features li {
     display: flex;
     align-items: center;
     gap: 0.75rem;
-    font-size: 1.1rem;
+    font-size: 1.05rem;
+    font-weight: 500;
+    background: rgba(255, 255, 255, 0.15);
+    backdrop-filter: blur(10px);
+    padding: 0.875rem 1.25rem;
+    border-radius: var(--radius-md);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transition: all 0.3s ease;
+  }
+
+  .hero-features li:hover {
+    background: rgba(255, 255, 255, 0.25);
+    transform: translateX(5px);
   }
 
   .hero-features svg {
     flex-shrink: 0;
-    color: #f59e0b;
+    color: #10b981;
+    filter: drop-shadow(0 0 8px rgba(16, 185, 129, 0.5));
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 900;
+    color: #fbbf24;
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    text-shadow: 0 2px 10px rgba(251, 191, 36, 0.3);
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    opacity: 0.9;
+    font-weight: 500;
   }
 
   .form-card {
     background: white;
-    border-radius: 1rem;
+    border-radius: var(--radius-xl);
     padding: 2.5rem;
-    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.5);
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .form-header {
+    text-align: center;
+    margin-bottom: 2rem;
   }
 
   .form-title {
@@ -217,25 +375,45 @@
 
   .form-subtitle {
     color: var(--color-text-light);
-    margin-bottom: 2rem;
+    font-size: 1rem;
   }
 
   .btn-block {
     width: 100%;
+    justify-content: center;
   }
 
   .form-privacy {
-    font-size: 0.875rem;
-    color: var(--color-text-light);
+    font-size: 0.8125rem;
+    color: var(--color-text-muted);
     text-align: center;
     margin-top: 1rem;
+    line-height: 1.5;
   }
 
   .alert {
-    padding: 1rem;
-    border-radius: 0.5rem;
-    margin-top: 1rem;
-    font-weight: 500;
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    margin-top: 1.5rem;
+    font-size: 0.9375rem;
+  }
+
+  .alert svg {
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  .alert strong {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .alert p {
+    margin: 0;
+    opacity: 0.9;
   }
 
   .alert-success {
@@ -244,16 +422,54 @@
     border: 2px solid #059669;
   }
 
+  .alert-success svg {
+    color: #059669;
+  }
+
   .alert-error {
     background: #fee2e2;
     color: #991b1b;
     border: 2px solid #dc2626;
   }
 
-  @media (max-width: 968px) {
+  .alert-error svg {
+    color: #dc2626;
+  }
+
+  .hero-waves {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    line-height: 0;
+    z-index: 1;
+  }
+
+  .hero-waves svg {
+    width: 100%;
+    height: auto;
+    display: block;
+  }
+
+  @media (max-width: 1024px) {
     .hero-content {
       grid-template-columns: 1fr;
       gap: 3rem;
+    }
+
+    .hero-stats {
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 6rem 0 4rem;
+      min-height: auto;
     }
 
     .hero-title {
@@ -263,19 +479,33 @@
     .hero-subtitle {
       font-size: 1.1rem;
     }
-  }
 
-  @media (max-width: 768px) {
-    .hero {
-      padding: 3rem 0;
+    .hero-highlight {
+      font-size: 1.2rem;
     }
 
-    .hero-title {
-      font-size: 2rem;
+    .hero-features {
+      grid-template-columns: 1fr;
+    }
+
+    .hero-stats {
+      gap: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 1.75rem;
+    }
+
+    .stat-label {
+      font-size: 0.8125rem;
     }
 
     .form-card {
       padding: 2rem 1.5rem;
+    }
+
+    .form-title {
+      font-size: 1.5rem;
     }
   }
 </style>
@@ -318,7 +548,7 @@
 
         if (response.ok) {
           // Mostrar mensaje de éxito
-          if (successAlert) successAlert.style.display = 'block';
+          if (successAlert) successAlert.style.display = 'flex';
           form.reset();
 
           // Scroll al mensaje
@@ -328,7 +558,7 @@
         }
       } catch (error) {
         // Mostrar mensaje de error
-        if (errorAlert) errorAlert.style.display = 'block';
+        if (errorAlert) errorAlert.style.display = 'flex';
         errorAlert?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
       } finally {
         // Restaurar botón
