@@ -1,0 +1,161 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Header from '../components/Header.astro';
+import Breadcrumbs from '../components/provincia/Breadcrumbs.astro';
+import ProvinciaHero from '../components/provincia/ProvinciaHero.astro';
+import Services from '../components/Services.astro';
+import GoogleMaps from '../components/provincia/GoogleMaps.astro';
+import FAQ from '../components/FAQ.astro';
+import ProvinciaInterlinking from '../components/provincia/ProvinciaInterlinking.astro';
+import Footer from '../components/Footer.astro';
+import { getProvinciaData } from '../data/provincias';
+
+const provinciaData = getProvinciaData('madrid');
+
+if (!provinciaData) {
+  return Astro.redirect('/404');
+}
+
+const { nombre, title, metaDescription, keywords, coordenadas, provinciasLimitrofes } = provinciaData;
+---
+
+<Layout title={title} description={metaDescription} keywords={keywords.join(', ')}>
+  <Header />
+  <Breadcrumbs provincia={nombre} />
+  <main>
+    <ProvinciaHero provincia={nombre} />
+    <Services />
+    <GoogleMaps provincia={nombre} lat={coordenadas.lat} lng={coordenadas.lng} />
+    <FAQ />
+    <ProvinciaInterlinking provincia={nombre} provinciasLimitrofes={provinciasLimitrofes} />
+  </main>
+  <Footer />
+
+  <!-- Schema Markup - LocalBusiness para Madrid -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "LocalBusiness",
+    "name": `Retirada Amianto ${nombre}`,
+    "description": `Empresa especializada en retirada de amianto en ${nombre}`,
+    "url": `https://retirada-amianto.netlify.app/retirada-amianto-${nombre.toLowerCase()}`,
+    "telephone": "+34900123456",
+    "email": "info@retirada-amianto.es",
+    "address": {
+      "@type": "PostalAddress",
+      "addressLocality": nombre,
+      "addressRegion": nombre,
+      "addressCountry": "ES"
+    },
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": coordenadas.lat,
+      "longitude": coordenadas.lng
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": nombre
+    },
+    "priceRange": "€€",
+    "openingHours": "Mo-Fr 08:00-19:00",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "reviewCount": "127"
+    }
+  })} />
+
+  <!-- Schema Markup - Service -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "serviceType": `Retirada de Amianto en ${nombre}`,
+    "provider": {
+      "@type": "Organization",
+      "name": `Retirada Amianto ${nombre}`,
+      "url": `https://retirada-amianto.netlify.app/retirada-amianto-${nombre.toLowerCase()}`
+    },
+    "areaServed": {
+      "@type": "City",
+      "name": nombre
+    },
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Servicios de Desamiantado",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": `Retirada de Tejados de Uralita en ${nombre}`
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": `Retirada de Depósitos de Fibrocemento en ${nombre}`
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": `Retirada de Tuberías de Amianto en ${nombre}`
+          }
+        }
+      ]
+    }
+  })} />
+
+  <!-- Schema Markup - BreadcrumbList -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Inicio",
+        "item": "https://retirada-amianto.netlify.app"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": nombre,
+        "item": `https://retirada-amianto.netlify.app/retirada-amianto-${nombre.toLowerCase()}`
+      }
+    ]
+  })} />
+
+  <!-- Schema Markup - FAQPage -->
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": `¿Cuánto cuesta retirar amianto en ${nombre}?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `El precio de retirada de amianto en ${nombre} depende del tipo de material, metros cuadrados y accesibilidad. Como referencia, la retirada de cubiertas de uralita suele oscilar entre 15-35€/m². Te ofrecemos un presupuesto detallado sin compromiso.`
+        }
+      },
+      {
+        "@type": "Question",
+        "name": `¿Ofrecen servicio de retirada de uralita en ${nombre}?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": `Sí, ofrecemos servicio completo de retirada de uralita en ${nombre} y toda la provincia. Nuestro equipo se desplaza a cualquier localidad con personal certificado y equipos especializados.`
+        }
+      },
+      {
+        "@type": "Question",
+        "name": `¿Es obligatorio contratar una empresa para retirar amianto en ${nombre}?`,
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Sí, según el RD 396/2006, solo empresas inscritas en el RERA con personal formado pueden manipular amianto. Hacerlo sin autorización supone riesgos graves para la salud y sanciones de hasta 819.780€."
+        }
+      }
+    ]
+  })} />
+</Layout>

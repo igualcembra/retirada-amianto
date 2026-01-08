@@ -1,0 +1,602 @@
+---
+interface Props {
+  provincia: string;
+}
+
+const { provincia } = Astro.props;
+---
+
+<section class="hero">
+  <div class="hero-background">
+    <img
+      src="https://images.unsplash.com/photo-1504307651254-35680f356dfd?w=1920&auto=format&fit=crop&q=80"
+      alt={`Retirada de amianto en ${provincia}`}
+      class="hero-bg-image"
+    />
+    <div class="hero-overlay"></div>
+  </div>
+
+  <div class="container">
+    <div class="hero-content">
+      <div class="hero-text">
+        <div class="hero-badge">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M12 2L2 7l10 5 10-5-10-5z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <path d="M2 17l10 5 10-5M2 12l10 5 10-5" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Servicio en {provincia}</span>
+        </div>
+
+        <h1 class="hero-title">Retirada de Amianto en {provincia}</h1>
+
+        <p class="hero-subtitle">
+          Empresa especializada en retirada de amianto y uralita en {provincia}. Personal certificado y servicio profesional con todas las garantías.
+        </p>
+
+        <ul class="hero-features">
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Cobertura en toda la provincia</span>
+          </li>
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Personal cualificado certificado</span>
+          </li>
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Gestión completa de residuos</span>
+          </li>
+          <li>
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <polyline points="20 6 9 17 4 12" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <span>Presupuesto sin compromiso en 24h</span>
+          </li>
+        </ul>
+
+        <div class="hero-stats">
+          <div class="stat">
+            <div class="stat-number">+500</div>
+            <div class="stat-label">Proyectos en {provincia}</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">24h</div>
+            <div class="stat-label">Tiempo de respuesta</div>
+          </div>
+          <div class="stat">
+            <div class="stat-number">100%</div>
+            <div class="stat-label">Satisfacción cliente</div>
+          </div>
+        </div>
+      </div>
+
+      <div class="hero-form-wrapper">
+        <div class="form-card">
+          <div class="form-header">
+            <h2 class="form-title">Solicita presupuesto en {provincia}</h2>
+            <p class="form-subtitle">Sin compromiso • Te respondemos en menos de 24 horas</p>
+          </div>
+
+          <form id="contact-form" class="contact-form">
+            <div class="form-group">
+              <label for="nombre" class="form-label">Nombre completo *</label>
+              <input
+                type="text"
+                id="nombre"
+                name="nombre"
+                class="form-input"
+                required
+                placeholder="Ej: Juan García"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="email" class="form-label">Email *</label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="form-input"
+                required
+                placeholder="ejemplo@email.com"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="telefono" class="form-label">Teléfono *</label>
+              <input
+                type="tel"
+                id="telefono"
+                name="telefono"
+                class="form-input"
+                required
+                placeholder="Ej: 600 123 456"
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="ubicacion" class="form-label">Ubicación (ciudad/localidad) *</label>
+              <input
+                type="text"
+                id="ubicacion"
+                name="ubicacion"
+                class="form-input"
+                required
+                placeholder={`Ej: ${provincia} capital...`}
+                value={provincia}
+              />
+            </div>
+
+            <div class="form-group">
+              <label for="servicio" class="form-label">Tipo de servicio *</label>
+              <select id="servicio" name="servicio" class="form-select" required>
+                <option value="">Selecciona un servicio</option>
+                <option value="retirada-tejado">Retirada de tejado de uralita</option>
+                <option value="retirada-deposito">Retirada de depósito de fibrocemento</option>
+                <option value="retirada-tuberias">Retirada de tuberías</option>
+                <option value="retirada-fachada">Retirada de fachada</option>
+                <option value="encapsulado">Encapsulado de amianto</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label for="mensaje" class="form-label">Mensaje (opcional)</label>
+              <textarea
+                id="mensaje"
+                name="mensaje"
+                class="form-textarea"
+                placeholder="Cuéntanos más detalles sobre tu proyecto..."
+              ></textarea>
+            </div>
+
+            <button type="submit" class="btn btn-primary btn-block">
+              <span class="btn-text">
+                <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: inline-block;">
+                  <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                Solicitar Presupuesto
+              </span>
+              <span class="btn-loading" style="display: none;">
+                <span class="spinner"></span> Enviando...
+              </span>
+            </button>
+
+            <p class="form-privacy">
+              🔒 Al enviar este formulario aceptas nuestra política de privacidad.
+              Tus datos están 100% protegidos.
+            </p>
+          </form>
+
+          <div id="form-success" class="alert alert-success" style="display: none;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+            <div>
+              <strong>¡Mensaje enviado!</strong>
+              <p>Te contactaremos en menos de 24 horas.</p>
+            </div>
+          </div>
+
+          <div id="form-error" class="alert alert-error" style="display: none;">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <circle cx="12" cy="12" r="10" stroke-width="2"/>
+              <line x1="12" y1="8" x2="12" y2="12" stroke-width="2" stroke-linecap="round"/>
+              <line x1="12" y1="16" x2="12.01" y2="16" stroke-width="2" stroke-linecap="round"/>
+            </svg>
+            <div>
+              <strong>Error</strong>
+              <p>No se pudo enviar el mensaje. Por favor, inténtalo de nuevo.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .hero {
+    position: relative;
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    padding: 8rem 0 4rem;
+    overflow: hidden;
+  }
+
+  .hero-background {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: -1;
+  }
+
+  .hero-bg-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
+  }
+
+  .hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(135deg, rgba(15, 23, 42, 0.95) 0%, rgba(15, 23, 42, 0.85) 100%);
+  }
+
+  .hero-content {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 3rem;
+    align-items: center;
+  }
+
+  .hero-text {
+    color: white;
+  }
+
+  .hero-badge {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: rgba(14, 165, 233, 0.2);
+    border: 1px solid rgba(14, 165, 233, 0.3);
+    border-radius: 2rem;
+    font-size: 0.875rem;
+    font-weight: 600;
+    color: var(--color-primary-light);
+    margin-bottom: 1.5rem;
+  }
+
+  .hero-badge svg {
+    color: var(--color-primary-light);
+  }
+
+  .hero-title {
+    font-size: clamp(2.5rem, 5vw, 3.5rem);
+    font-weight: 800;
+    line-height: 1.1;
+    margin-bottom: 1.5rem;
+    background: linear-gradient(135deg, #ffffff 0%, #e0e7ff 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .hero-subtitle {
+    font-size: 1.25rem;
+    line-height: 1.7;
+    color: rgba(255, 255, 255, 0.9);
+    margin-bottom: 2rem;
+  }
+
+  .hero-features {
+    list-style: none;
+    display: grid;
+    gap: 0.875rem;
+    margin-bottom: 2.5rem;
+  }
+
+  .hero-features li {
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 1rem;
+    color: rgba(255, 255, 255, 0.95);
+    font-weight: 500;
+  }
+
+  .hero-features svg {
+    color: var(--color-secondary);
+    flex-shrink: 0;
+  }
+
+  .hero-stats {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 2rem;
+    padding-top: 2rem;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+  }
+
+  .stat {
+    text-align: center;
+  }
+
+  .stat-number {
+    font-size: 2.5rem;
+    font-weight: 800;
+    color: var(--color-primary-light);
+    line-height: 1;
+    margin-bottom: 0.5rem;
+    font-family: 'Poppins', sans-serif;
+  }
+
+  .stat-label {
+    font-size: 0.875rem;
+    color: rgba(255, 255, 255, 0.7);
+  }
+
+  .hero-form-wrapper {
+    position: relative;
+  }
+
+  .form-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: 1.5rem;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--color-primary);
+  }
+
+  .form-header {
+    text-align: center;
+    margin-bottom: 1.5rem;
+    padding-bottom: 1.25rem;
+    border-bottom: 2px solid var(--color-bg-gray);
+  }
+
+  .form-title {
+    color: var(--color-text);
+    font-size: 1.25rem;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+  }
+
+  .form-subtitle {
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+    font-weight: 500;
+  }
+
+  .contact-form .form-group {
+    margin-bottom: 0.75rem;
+  }
+
+  .contact-form .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 0.8125rem;
+    color: var(--color-text);
+  }
+
+  .contact-form .form-input,
+  .contact-form .form-select,
+  .contact-form .form-textarea {
+    width: 100%;
+    padding: 0.75rem 0.875rem;
+    font-size: 0.9375rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    font-family: inherit;
+    background: white;
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  .contact-form .form-input:focus,
+  .contact-form .form-select:focus,
+  .contact-form .form-textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+  }
+
+  .contact-form .form-textarea {
+    resize: vertical;
+    min-height: 60px;
+    line-height: 1.6;
+  }
+
+  .contact-form .form-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230ea5e9' stroke-width='3'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 0.875rem center;
+    background-size: 14px;
+    padding-right: 2.5rem;
+    appearance: none;
+  }
+
+  .btn-block {
+    width: 100%;
+    justify-content: center;
+    font-size: 1rem;
+    padding: 0.875rem 1.75rem;
+    margin-top: 0.5rem;
+    font-weight: 700;
+  }
+
+  .btn-block .btn-text {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .form-privacy {
+    font-size: 0.75rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-top: 1rem;
+    line-height: 1.5;
+    padding-top: 1rem;
+    border-top: 1px solid var(--color-bg-gray);
+  }
+
+  .alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 0.875rem;
+    padding: 1rem;
+    border-radius: var(--radius-md);
+    margin-top: 1.25rem;
+    font-size: 0.875rem;
+  }
+
+  .alert svg {
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  .alert strong {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .alert p {
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  .alert-success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 2px solid #059669;
+  }
+
+  .alert-success svg {
+    color: #059669;
+  }
+
+  .alert-error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 2px solid #dc2626;
+  }
+
+  .alert-error svg {
+    color: #dc2626;
+  }
+
+  @media (max-width: 1024px) {
+    .hero {
+      min-height: auto;
+      padding: 6rem 0 3rem;
+    }
+
+    .hero-content {
+      grid-template-columns: 1fr;
+      gap: 2.5rem;
+    }
+
+    .hero-stats {
+      gap: 1.5rem;
+    }
+
+    .stat-number {
+      font-size: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .hero {
+      padding: 5rem 0 2rem;
+    }
+
+    .hero-title {
+      font-size: 2rem;
+    }
+
+    .hero-subtitle {
+      font-size: 1.125rem;
+    }
+
+    .hero-features {
+      gap: 0.75rem;
+    }
+
+    .hero-features li {
+      font-size: 0.9375rem;
+    }
+
+    .hero-stats {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 1rem;
+    }
+
+    .stat-number {
+      font-size: 1.75rem;
+    }
+
+    .stat-label {
+      font-size: 0.75rem;
+    }
+
+    .form-card {
+      padding: 1.25rem;
+    }
+
+    .form-title {
+      font-size: 1.125rem;
+    }
+
+    .form-subtitle {
+      font-size: 0.8125rem;
+    }
+  }
+</style>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const form = document.getElementById('contact-form') as HTMLFormElement;
+    const successAlert = document.getElementById('form-success') as HTMLElement;
+    const errorAlert = document.getElementById('form-error') as HTMLElement;
+    const submitBtn = form?.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const btnText = submitBtn?.querySelector('.btn-text') as HTMLElement;
+    const btnLoading = submitBtn?.querySelector('.btn-loading') as HTMLElement;
+
+    form?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!submitBtn || !btnText || !btnLoading) return;
+
+      // Mostrar loading
+      submitBtn.disabled = true;
+      btnText.style.display = 'none';
+      btnLoading.style.display = 'inline-flex';
+
+      // Ocultar mensajes previos
+      if (successAlert) successAlert.style.display = 'none';
+      if (errorAlert) errorAlert.style.display = 'none';
+
+      // Recoger datos del formulario
+      const formData = new FormData(form);
+      const data = Object.fromEntries(formData);
+
+      // Log para demo (sin backend real)
+      console.log('Formulario enviado (DEMO MODE):', data);
+
+      // Simular envío exitoso
+      setTimeout(() => {
+        // Mostrar mensaje de éxito
+        if (successAlert) successAlert.style.display = 'flex';
+        form.reset();
+
+        // Scroll al mensaje
+        successAlert?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+
+        // Restaurar botón
+        submitBtn.disabled = false;
+        btnText.style.display = 'inline-flex';
+        btnLoading.style.display = 'none';
+      }, 1500);
+    });
+  });
+</script>

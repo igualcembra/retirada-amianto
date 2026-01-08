@@ -1,0 +1,197 @@
+---
+interface Props {
+  provincia: string;
+  provinciasLimitrofes: string[];
+}
+
+const { provincia, provinciasLimitrofes } = Astro.props;
+
+// Capitalizar primera letra
+const capitalize = (str: string) => str.charAt(0).toUpperCase() + str.slice(1);
+---
+
+<section class="section section-interlinking">
+  <div class="container">
+    <div class="section-header text-center">
+      <h2 class="section-title">También Trabajamos en Provincias Cercanas</h2>
+      <p class="section-subtitle">
+        Servicio de retirada de amianto en {provincia} y provincias limítrofes
+      </p>
+    </div>
+
+    <div class="provincias-grid">
+      {provinciasLimitrofes.map((slug) => (
+        <a href={`/retirada-amianto-${slug}`} class="provincia-card">
+          <div class="provincia-icon">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+              <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              <circle cx="12" cy="10" r="3" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            </svg>
+          </div>
+          <h3 class="provincia-nombre">{capitalize(slug)}</h3>
+          <p class="provincia-link-text">Ver servicios</p>
+          <svg class="provincia-arrow" width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M5 12h14M12 5l7 7-7 7" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+        </a>
+      ))}
+    </div>
+
+    <div class="cta-box">
+      <div class="cta-content">
+        <h3 class="cta-title">¿No encuentras tu provincia?</h3>
+        <p class="cta-description">
+          Trabajamos en toda España. Consulta disponibilidad para tu zona.
+        </p>
+      </div>
+      <a href="/#contacto" class="btn btn-primary">Solicitar Información</a>
+    </div>
+  </div>
+</section>
+
+<style>
+  .section-interlinking {
+    background: var(--color-bg-light);
+  }
+
+  .provincias-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 3rem;
+  }
+
+  .provincia-card {
+    background: white;
+    padding: 2rem;
+    border-radius: 1rem;
+    border: 2px solid var(--color-border);
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .provincia-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
+    transform: scaleX(0);
+    transition: transform 0.3s ease;
+  }
+
+  .provincia-card:hover {
+    transform: translateY(-4px);
+    border-color: var(--color-primary);
+    box-shadow: 0 8px 20px rgba(14, 165, 233, 0.15);
+  }
+
+  .provincia-card:hover::before {
+    transform: scaleX(1);
+  }
+
+  .provincia-icon {
+    width: 56px;
+    height: 56px;
+    margin: 0 auto 1rem;
+    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
+    border-radius: 0.75rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    transition: transform 0.3s ease;
+  }
+
+  .provincia-card:hover .provincia-icon {
+    transform: scale(1.1);
+  }
+
+  .provincia-nombre {
+    font-size: 1.25rem;
+    color: var(--color-text);
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+  }
+
+  .provincia-link-text {
+    color: var(--color-text-light);
+    font-size: 0.875rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .provincia-arrow {
+    color: var(--color-primary);
+    opacity: 0;
+    transform: translateX(-10px);
+    transition: all 0.3s ease;
+  }
+
+  .provincia-card:hover .provincia-arrow {
+    opacity: 1;
+    transform: translateX(0);
+  }
+
+  .cta-box {
+    background: white;
+    border-radius: 1rem;
+    padding: 2.5rem;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 2rem;
+    border: 2px solid var(--color-primary);
+  }
+
+  .cta-content {
+    flex: 1;
+  }
+
+  .cta-title {
+    font-size: 1.5rem;
+    margin-bottom: 0.5rem;
+    color: var(--color-text);
+  }
+
+  .cta-description {
+    color: var(--color-text-light);
+    font-size: 1rem;
+  }
+
+  @media (max-width: 1024px) {
+    .provincias-grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+
+  @media (max-width: 768px) {
+    .provincias-grid {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+
+    .provincia-card {
+      padding: 1.5rem;
+    }
+
+    .cta-box {
+      flex-direction: column;
+      text-align: center;
+      padding: 2rem 1.5rem;
+    }
+
+    .cta-title {
+      font-size: 1.25rem;
+    }
+
+    .cta-description {
+      font-size: 0.9375rem;
+    }
+  }
+</style>
