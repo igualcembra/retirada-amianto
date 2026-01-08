@@ -10,7 +10,7 @@
       </p>
     </div>
 
-    <div class="grid grid-3">
+    <div class="services-grid">
       <div class="service-card">
         <div class="service-image">
           <img
@@ -157,8 +157,24 @@
     background: var(--color-bg-light);
   }
 
-  .grid-3 {
+  .services-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 2.5rem;
+  }
+
+  @media (max-width: 1024px) {
+    .services-grid {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 2rem;
+    }
+  }
+
+  @media (max-width: 768px) {
+    .services-grid {
+      grid-template-columns: 1fr;
+      gap: 1.5rem;
+    }
   }
 
   .service-card {
