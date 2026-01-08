@@ -124,10 +124,125 @@
       </div>
     </div>
 
-    <div class="faq-cta">
-      <h3>¿Tienes más dudas?</h3>
-      <p>Contacta con nosotros y te asesoraremos sin compromiso</p>
-      <a href="#contacto" class="btn btn-primary">Contactar Ahora</a>
+    <div class="faq-form-section">
+      <div class="form-card">
+        <div class="form-header">
+          <h2 class="form-title">¿Tienes más dudas? Solicita tu presupuesto</h2>
+          <p class="form-subtitle">Sin compromiso • Te respondemos en menos de 24 horas</p>
+        </div>
+
+        <form id="faq-contact-form" class="contact-form">
+          <div class="form-group">
+            <label for="faq-nombre" class="form-label">Nombre completo *</label>
+            <input
+              type="text"
+              id="faq-nombre"
+              name="nombre"
+              class="form-input"
+              required
+              placeholder="Ej: Juan García"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="faq-email" class="form-label">Email *</label>
+            <input
+              type="email"
+              id="faq-email"
+              name="email"
+              class="form-input"
+              required
+              placeholder="ejemplo@email.com"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="faq-telefono" class="form-label">Teléfono *</label>
+            <input
+              type="tel"
+              id="faq-telefono"
+              name="telefono"
+              class="form-input"
+              required
+              placeholder="Ej: 600 123 456"
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="faq-ubicacion" class="form-label">Ubicación (ciudad/provincia) *</label>
+            <input
+              type="text"
+              id="faq-ubicacion"
+              name="ubicacion"
+              class="form-input"
+              required
+              placeholder="Ej: Madrid, Barcelona..."
+            />
+          </div>
+
+          <div class="form-group">
+            <label for="faq-servicio" class="form-label">Tipo de servicio *</label>
+            <select id="faq-servicio" name="servicio" class="form-select" required>
+              <option value="">Selecciona un servicio</option>
+              <option value="retirada-tejado">Retirada de tejado de uralita</option>
+              <option value="retirada-deposito">Retirada de depósito de fibrocemento</option>
+              <option value="retirada-tuberias">Retirada de tuberías</option>
+              <option value="retirada-fachada">Retirada de fachada</option>
+              <option value="encapsulado">Encapsulado de amianto</option>
+            </select>
+          </div>
+
+          <div class="form-group">
+            <label for="faq-mensaje" class="form-label">Mensaje (opcional)</label>
+            <textarea
+              id="faq-mensaje"
+              name="mensaje"
+              class="form-textarea"
+              placeholder="Cuéntanos más detalles sobre tu proyecto..."
+            ></textarea>
+          </div>
+
+          <button type="submit" class="btn btn-primary btn-block">
+            <span class="btn-text">
+              <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" style="display: inline-block;">
+                <path d="M22 2L11 13M22 2l-7 20-4-9-9-4 20-7z" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+              </svg>
+              Solicitar Presupuesto
+            </span>
+            <span class="btn-loading" style="display: none;">
+              <span class="spinner"></span> Enviando...
+            </span>
+          </button>
+
+          <p class="form-privacy">
+            🔒 Al enviar este formulario aceptas nuestra política de privacidad.
+            Tus datos están 100% protegidos.
+          </p>
+        </form>
+
+        <div id="faq-form-success" class="alert alert-success" style="display: none;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+            <polyline points="22 4 12 14.01 9 11.01" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <div>
+            <strong>¡Mensaje enviado!</strong>
+            <p>Te contactaremos en menos de 24 horas.</p>
+          </div>
+        </div>
+
+        <div id="faq-form-error" class="alert alert-error" style="display: none;">
+          <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor">
+            <circle cx="12" cy="12" r="10" stroke-width="2"/>
+            <line x1="12" y1="8" x2="12" y2="12" stroke-width="2" stroke-linecap="round"/>
+            <line x1="12" y1="16" x2="12.01" y2="16" stroke-width="2" stroke-linecap="round"/>
+          </svg>
+          <div>
+            <strong>Error</strong>
+            <p>No se pudo enviar el mensaje. Por favor, inténtalo de nuevo.</p>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </section>
@@ -199,24 +314,158 @@
     line-height: 1.7;
   }
 
-  .faq-cta {
+  .faq-form-section {
+    max-width: 700px;
+    margin: 0 auto;
+  }
+
+  .form-card {
+    background: white;
+    border-radius: var(--radius-xl);
+    padding: 2.5rem;
+    box-shadow: 0 10px 40px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--color-primary);
+  }
+
+  .form-header {
     text-align: center;
-    padding: 3rem;
-    background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-dark) 100%);
-    color: white;
-    border-radius: 1rem;
-  }
-
-  .faq-cta h3 {
-    font-size: 2rem;
-    margin-bottom: 0.75rem;
-    color: white;
-  }
-
-  .faq-cta p {
-    font-size: 1.25rem;
     margin-bottom: 2rem;
-    opacity: 0.95;
+    padding-bottom: 1.5rem;
+    border-bottom: 2px solid var(--color-bg-gray);
+  }
+
+  .form-title {
+    color: var(--color-text);
+    font-size: 1.75rem;
+    margin-bottom: 0.5rem;
+    font-weight: 800;
+  }
+
+  .form-subtitle {
+    color: var(--color-text-light);
+    font-size: 1rem;
+    font-weight: 500;
+  }
+
+  .contact-form .form-group {
+    margin-bottom: 1.25rem;
+  }
+
+  .contact-form .form-label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 700;
+    font-size: 0.9375rem;
+    color: var(--color-text);
+  }
+
+  .contact-form .form-input,
+  .contact-form .form-select,
+  .contact-form .form-textarea {
+    width: 100%;
+    padding: 0.875rem 1rem;
+    font-size: 1rem;
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-md);
+    transition: all 0.3s ease;
+    font-family: inherit;
+    background: white;
+    color: var(--color-text);
+    font-weight: 500;
+  }
+
+  .contact-form .form-input:focus,
+  .contact-form .form-select:focus,
+  .contact-form .form-textarea:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 4px rgba(14, 165, 233, 0.1);
+  }
+
+  .contact-form .form-textarea {
+    resize: vertical;
+    min-height: 100px;
+    line-height: 1.6;
+  }
+
+  .contact-form .form-select {
+    cursor: pointer;
+    background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%230ea5e9' stroke-width='3'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-position: right 1rem center;
+    background-size: 14px;
+    padding-right: 3rem;
+    appearance: none;
+  }
+
+  .btn-block {
+    width: 100%;
+    justify-content: center;
+    font-size: 1.125rem;
+    padding: 1rem 2rem;
+    margin-top: 0.5rem;
+    font-weight: 700;
+  }
+
+  .btn-block .btn-text {
+    display: flex;
+    align-items: center;
+    gap: 0.625rem;
+  }
+
+  .form-privacy {
+    font-size: 0.875rem;
+    color: var(--color-text-muted);
+    text-align: center;
+    margin-top: 1.25rem;
+    line-height: 1.6;
+    padding-top: 1.25rem;
+    border-top: 1px solid var(--color-bg-gray);
+  }
+
+  .alert {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.25rem;
+    border-radius: var(--radius-md);
+    margin-top: 1.5rem;
+    font-size: 0.9375rem;
+  }
+
+  .alert svg {
+    flex-shrink: 0;
+    margin-top: 0.125rem;
+  }
+
+  .alert strong {
+    display: block;
+    margin-bottom: 0.25rem;
+  }
+
+  .alert p {
+    margin: 0;
+    opacity: 0.9;
+  }
+
+  .alert-success {
+    background: #d1fae5;
+    color: #065f46;
+    border: 2px solid #059669;
+  }
+
+  .alert-success svg {
+    color: #059669;
+  }
+
+  .alert-error {
+    background: #fee2e2;
+    color: #991b1b;
+    border: 2px solid #dc2626;
+  }
+
+  .alert-error svg {
+    color: #dc2626;
   }
 
   @media (max-width: 768px) {
@@ -229,16 +478,16 @@
       padding: 0 1.25rem 1.25rem;
     }
 
-    .faq-cta {
+    .form-card {
       padding: 2rem 1.5rem;
     }
 
-    .faq-cta h3 {
+    .form-title {
       font-size: 1.5rem;
     }
 
-    .faq-cta p {
-      font-size: 1.1rem;
+    .form-subtitle {
+      font-size: 0.9375rem;
     }
   }
 </style>
@@ -261,6 +510,63 @@
           item.classList.add('active');
         }
       });
+    });
+
+    // Formulario FAQ
+    const faqForm = document.getElementById('faq-contact-form') as HTMLFormElement;
+    const faqSuccessAlert = document.getElementById('faq-form-success') as HTMLElement;
+    const faqErrorAlert = document.getElementById('faq-form-error') as HTMLElement;
+    const faqSubmitBtn = faqForm?.querySelector('button[type="submit"]') as HTMLButtonElement;
+    const faqBtnText = faqSubmitBtn?.querySelector('.btn-text') as HTMLElement;
+    const faqBtnLoading = faqSubmitBtn?.querySelector('.btn-loading') as HTMLElement;
+
+    faqForm?.addEventListener('submit', async (e) => {
+      e.preventDefault();
+
+      if (!faqSubmitBtn || !faqBtnText || !faqBtnLoading) return;
+
+      // Mostrar loading
+      faqSubmitBtn.disabled = true;
+      faqBtnText.style.display = 'none';
+      faqBtnLoading.style.display = 'inline-flex';
+
+      // Ocultar mensajes previos
+      if (faqSuccessAlert) faqSuccessAlert.style.display = 'none';
+      if (faqErrorAlert) faqErrorAlert.style.display = 'none';
+
+      // Recoger datos del formulario
+      const formData = new FormData(faqForm);
+      const data = Object.fromEntries(formData);
+
+      try {
+        const response = await fetch('/api/contact', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
+          // Mostrar mensaje de éxito
+          if (faqSuccessAlert) faqSuccessAlert.style.display = 'flex';
+          faqForm.reset();
+
+          // Scroll al mensaje
+          faqSuccessAlert?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+        } else {
+          throw new Error('Error al enviar');
+        }
+      } catch (error) {
+        // Mostrar mensaje de error
+        if (faqErrorAlert) faqErrorAlert.style.display = 'flex';
+        faqErrorAlert?.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+      } finally {
+        // Restaurar botón
+        faqSubmitBtn.disabled = false;
+        faqBtnText.style.display = 'inline';
+        faqBtnLoading.style.display = 'none';
+      }
     });
   });
 </script>
